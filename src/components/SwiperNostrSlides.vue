@@ -132,7 +132,6 @@ export default {
   font-size: 6vw;
   font-weight: bold;
   text-shadow: 4px 3px 0px #4242b8, -4px 3px 0 #ff00bb;
-  text-transform: lowercase;
   box-sizing: border-box;
   padding: 0 10%;
 

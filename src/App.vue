@@ -1,9 +1,9 @@
 <template>
-  <RouterView />
+  <NostrUSPs />
 </template>
 
 <script setup>
-
+import NostrUSPs from '@/pages/NostrUSPs.vue';
 </script>
 
 <style>

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Index from '../pages/Index.vue'
+import Index from '@/pages/Index.vue'
+import NostrUSPs from '@/pages/NostrUSPs.vue';
 
 const router = createRouter({
   history: createWebHistory('/fosdem2025'),
@@ -7,7 +8,7 @@ const router = createRouter({
     {
       path: '/index',
       name: 'Start',
-      component: Index
+      component: NostrUSPs
     },
     {
       path: '/nostr-swiper',
