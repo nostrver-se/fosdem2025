@@ -9,7 +9,7 @@
         Print for a NIP-01 flyer / handout
       </li>
       <li>
-        <a href="#" target="_blank">Source / repository </a>
+        <a href="https://github.com/nostrver-se/fosdem2025" target="_blank">Source / repository </a>
       </li>
     </ul>
   </div>
