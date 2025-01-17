@@ -9,68 +9,86 @@
       :pagination="{
         clickable: true,
       }"
-      :navigation="false"
+      :navigation="true"
       :modules="modules"
       :loop="true"
       @autoplayTimeLeft="onAutoplayTimeLeft"
       class="mySwiper"
   >
     <swiper-slide>
-      A protocol, not a platform
+      NOSTR
     </swiper-slide>
     <swiper-slide>
-      a libre protocol for communication using websockets
-    </swiper-slide>
-    <swiper-slide>
-      Foster Freedom and social cohesion
+      It's a protocol, <br />
+      not a platform
     </swiper-slide>
     <swiper-slide>
       Notes and Other Stuff Transmitted by Relays
     </swiper-slide>
     <swiper-slide>
-      key signed events with data,<br />
+      Foster freedom and social cohesion
+    </swiper-slide>
+    <swiper-slide>
+      A libre protocol for communication using websockets
+    </swiper-slide>
+    <swiper-slide>
+      Key signed events with data (JSON),<br />
       broadcasted between clients and relays
     </swiper-slide>
     <swiper-slide>
-      Not a platform, blockchain, web3 or a single entity owned project
+      Not a crypto, blockchain or web3 project
     </swiper-slide>
     <swiper-slide>
-      a grassroots project started in november 2019 by Fiatjaf
+      A grassroots project <br />
+      started in november 2019 by Fiatjaf
+      <br /><br />
+      https://fiatjaf.com/nostr.html
     </swiper-slide>
     <swiper-slide>
-      Easy to implement, simplicity is winning
+      Easy to implement, <br />
+      simplicity is key
     </swiper-slide>
     <swiper-slide>
-      Simple and flexible, so you are free to build anything<br />
-      But you have to embrace the chaos ;-)
+      You are free to build anything, <br />
+      but also embrace the chaos ;-)
     </swiper-slide>
     <swiper-slide>
-      the database for your Local-first application
+      The database for your local-first application
     </swiper-slide>
     <swiper-slide>
-      rich development environment with many libraries and SDKs
+      Rich development ecosystem with many libraries and SDKs
     </swiper-slide>
     <swiper-slide>
-      serving freedom of choice
+      It's serving the freedom of choice
     </swiper-slide>
     <swiper-slide>
-      not perfect and it will never be<br />
-      worse is better (Richard P. Gabriel 1989)
+      Not perfect and it will never be<br />
+      Worse is better (Richard P. Gabriel 1989)
     </swiper-slide>
     <swiper-slide>
-      With Nostr you can stop studying protocols, but just start building
+      Stop studying protocols, <br />
+      just start building
     </swiper-slide>
     <swiper-slide>
-      a movement endorsing digital autonomy
+      A movement endorsing digital autonomy
     </swiper-slide>
     <swiper-slide>
+      Use and build social media for friends,
       not for billionaires
     </swiper-slide>
     <swiper-slide>
-      the protocol is the API / the API is on the protocol level
+      The protocol is the API, <br />
+      the API is on the protocol level
     </swiper-slide>
     <swiper-slide>
-      Jack Dorsey and Edward Snowden loves Nostr
+      Jack Dorsey and Edward Snowden loves it <br />
+      #freedomtech
+    </swiper-slide>
+    <swiper-slide>
+      A local-first internet identity
+    </swiper-slide>
+    <swiper-slide>
+      The most open network with digital signed and verifiable data
     </swiper-slide>
     <template #container-end>
       <div class="autoplay-progress">
@@ -93,9 +111,10 @@ import 'swiper/css';
 
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 // import required modules
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default {
   components: {
@@ -113,7 +132,7 @@ export default {
       onAutoplayTimeLeft,
       progressCircle,
       progressContent,
-      modules: [Autoplay, Pagination],
+      modules: [Autoplay, Pagination, Navigation],
     };
   },
 };
@@ -129,9 +148,9 @@ export default {
 .swiper-slide {
   font-family: 'Ubuntu Mono';
   text-align: center;
-  font-size: 6vw;
+  font-size: 8vw;
   font-weight: bold;
-  text-shadow: 4px 3px 0px #4242b8, -4px 3px 0 #ff00bb;
+  text-shadow: 3px 3px 0px #262687, -3px 3px 0 #9f0279;
   box-sizing: border-box;
   padding: 0 10%;
 
@@ -139,7 +158,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: invert(.2);
+  filter: invert(.1);
 }
 
 .swiper-slide img {
@@ -167,7 +186,7 @@ export default {
   --progress: 0;
   position: absolute;
   left: 0;
-  top: 0px;
+  top: 0;
   z-index: 10;
   width: 100%;
   height: 100%;
