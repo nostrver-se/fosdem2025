@@ -23,7 +23,8 @@
       not a platform
     </swiper-slide>
     <swiper-slide>
-      Notes and Other Stuff Transmitted by Relays
+      Notes and Other Stu
+       Transmitted by Relays
     </swiper-slide>
     <swiper-slide>
       Foster freedom and social cohesion
@@ -39,10 +40,9 @@
       Not a crypto, blockchain or web3 project
     </swiper-slide>
     <swiper-slide>
-      A grassroots project <br />
-      started in november 2019 by Fiatjaf
-      <br /><br />
-      https://fiatjaf.com/nostr.html
+      A grassroots project
+      started in 2019
+      by Fiatjaf
     </swiper-slide>
     <swiper-slide>
       Easy to implement, <br />
@@ -159,6 +159,9 @@ export default {
   justify-content: center;
   align-items: center;
   filter: invert(.1);
+  small {
+    font-size: 4vw;
+  }
 }
 
 .swiper-slide img {

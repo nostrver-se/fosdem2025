@@ -1,6 +1,6 @@
 <template>
   <div class="nostr-fosdem-bg">
-    <img src="@/assets/nostr-fosdem2025.jpeg" />
+    <img src="@/assets/fosdem_ostrich_avatar.png" />
   </div>
   <SwiperNostrSlides />
 </template>
@@ -17,7 +17,7 @@ import SwiperNostrSlides from '../components/SwiperNostrSlides.vue'
 body {
   height: 100vh;
 }
-div {
+div.swiper {
   font-family: 'Ubuntu', open-sans;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -31,13 +31,14 @@ div {
 }
 .nostr-fosdem-bg {
   position: absolute;
-  bottom: -25px;
-  right: 100px;
+  bottom: 0;
+  right: 0;
   z-index: 999;
-  width: 250px;
-  height: 250px;
+  width: 20vw;
+  height: 20vw;
+  opacity: .95;
   img {
-    opacity: .7;
+    opacity: 1;
     width: inherit;
     height: inherit;
   }
