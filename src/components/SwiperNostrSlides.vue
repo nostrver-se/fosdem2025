@@ -1,95 +1,27 @@
 <template>
-  <swiper
-      :spaceBetween="30"
-      :centeredSlides="true"
-      :autoplay="{
-        delay: 10000,
-        disableOnInteraction: true,
-      }"
-      :pagination="{
-        clickable: true,
-      }"
-      :navigation="true"
-      :modules="modules"
-      :loop="true"
-      @autoplayTimeLeft="onAutoplayTimeLeft"
-      class="mySwiper"
-  >
-    <swiper-slide>
-      NOSTR
+  <swiper :spaceBetween="30" :centeredSlides="true" :autoplay="{ delay: 10000, disableOnInteraction: true, }"
+    :pagination="{ clickable: true }" :navigation="true" :modules="modules" :loop="true"
+    @autoplayTimeLeft="onAutoplayTimeLeft" class="mySwiper">
+
+    <swiper-slide v-for="(slide, index) in slides" :key="index" :style="{
+      backgroundImage: slide.background ? `url(${slide.background})` : 'none',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      width: '100vw',
+      height: '100vh'
+    }">
+      <div v-html="slide.text"></div>
+
+      <!-- show some artist images -->
+      <img class="artist" v-if="slide.image" :src=slide.image />
+
+      <!-- if we have no background we show gradient with the image in bottom right -->
+      <div v-if="!slide.background" class="nostr-fosdem-bg">
+        <img src="@/assets/fosdem_ostrich_avatar.png" />
+      </div>
     </swiper-slide>
-    <swiper-slide>
-      It's a protocol, <br />
-      not a platform
-    </swiper-slide>
-    <swiper-slide>
-      Notes and Other Stu
-       Transmitted by Relays
-    </swiper-slide>
-    <swiper-slide>
-      Foster freedom and social cohesion
-    </swiper-slide>
-    <swiper-slide>
-      A libre protocol for communication using websockets
-    </swiper-slide>
-    <swiper-slide>
-      Key signed events with data (JSON),<br />
-      broadcasted between clients and relays
-    </swiper-slide>
-    <swiper-slide>
-      Not a crypto, blockchain or web3 project
-    </swiper-slide>
-    <swiper-slide>
-      A grassroots project
-      started in 2019
-      by Fiatjaf
-    </swiper-slide>
-    <swiper-slide>
-      Easy to implement, <br />
-      simplicity is key
-    </swiper-slide>
-    <swiper-slide>
-      You are free to build anything, <br />
-      but also embrace the chaos ;-)
-    </swiper-slide>
-    <swiper-slide>
-      The database for your local-first application
-    </swiper-slide>
-    <swiper-slide>
-      Rich development ecosystem with many libraries and SDKs
-    </swiper-slide>
-    <swiper-slide>
-      It's serving the freedom of choice
-    </swiper-slide>
-    <swiper-slide>
-      Not perfect and it will never be<br />
-      Worse is better (Richard P. Gabriel 1989)
-    </swiper-slide>
-    <swiper-slide>
-      Stop studying protocols, <br />
-      just start building
-    </swiper-slide>
-    <swiper-slide>
-      A movement endorsing digital autonomy
-    </swiper-slide>
-    <swiper-slide>
-      Use and build social media for friends,
-      not for billionaires
-    </swiper-slide>
-    <swiper-slide>
-      The protocol is the API, <br />
-      the API is on the protocol level
-    </swiper-slide>
-    <swiper-slide>
-      Jack Dorsey and Edward Snowden loves it <br />
-      #freedomtech
-    </swiper-slide>
-    <swiper-slide>
-      A local-first internet identity
-    </swiper-slide>
-    <swiper-slide>
-      The most open network with digital signed and verifiable data
-    </swiper-slide>
+
     <template #container-end>
       <div class="autoplay-progress">
         <svg viewBox="0 0 48 48" ref="progressCircle">
@@ -120,6 +52,12 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+  },
+  props: {
+    slides: {
+      type: Array,
+      required: true,
+    },
   },
   setup() {
     const progressCircle = ref(null);
@@ -159,6 +97,7 @@ export default {
   justify-content: center;
   align-items: center;
   filter: invert(.1);
+
   small {
     font-size: 4vw;
   }
@@ -199,5 +138,25 @@ export default {
   stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
   stroke-dasharray: 125.6;
   transform: rotate(-90deg);
+}
+
+.nostr-fosdem-bg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  width: 20vw;
+  height: 20vw;
+  opacity: 0.95;
+}
+
+.nostr-fosdem-bg img {
+  opacity: 1;
+  width: inherit;
+  height: inherit;
+}
+
+img.artist {
+  width: auto !important
 }
 </style>
