@@ -5,10 +5,9 @@ function combineData(texts, backgrounds, images) {
     texts.forEach((text) => {
       result.push({ text, background, image: "" });
     });
-  });
-
-  images.forEach((image) => {
-    result.push({ text: "", background: "", image });
+    images.forEach((image) => {
+      result.push({ text: "", background: "", image });
+    });
   });
 
   return result;
