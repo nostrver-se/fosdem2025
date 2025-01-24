@@ -23,8 +23,7 @@
       not a platform
     </swiper-slide>
     <swiper-slide>
-      Notes and Other Stu
-       Transmitted by Relays
+      Notes and Other Stuff Transmitted by Relays
     </swiper-slide>
     <swiper-slide>
       Foster freedom and social cohesion
@@ -45,8 +44,7 @@
       by Fiatjaf
     </swiper-slide>
     <swiper-slide>
-      Easy to implement, <br />
-      simplicity is key
+      Not owned by anyone, no company, not even a foundation
     </swiper-slide>
     <swiper-slide>
       You are free to build anything, <br />
@@ -62,8 +60,13 @@
       It's serving the freedom of choice
     </swiper-slide>
     <swiper-slide>
-      Not perfect and it will never be<br />
-      Worse is better (Richard P. Gabriel 1989)
+      Zero switching costs
+    </swiper-slide>
+    <swiper-slide>
+      Your profile is not tied to a domain
+    </swiper-slide>
+    <swiper-slide>
+      The only decentralized protocol that has a chance of working
     </swiper-slide>
     <swiper-slide>
       Stop studying protocols, <br />
@@ -73,7 +76,10 @@
       A movement endorsing digital autonomy
     </swiper-slide>
     <swiper-slide>
-      Use and build social media for friends,
+      Standardization and interoperability for every sub-protocol
+    </swiper-slide>
+    <swiper-slide>
+      Use and build social apps for friends,
       not for billionaires
     </swiper-slide>
     <swiper-slide>
@@ -81,14 +87,20 @@
       the API is on the protocol level
     </swiper-slide>
     <swiper-slide>
-      Jack Dorsey and Edward Snowden loves it <br />
+      Jack Dorsey, Edward Snowden and Stella Assange love it <br />
       #freedomtech
+    </swiper-slide>
+    <swiper-slide>
+      Each relay is free to have any policy
     </swiper-slide>
     <swiper-slide>
       A local-first internet identity
     </swiper-slide>
     <swiper-slide>
       The most open network with digital signed and verifiable data
+    </swiper-slide>
+    <swiper-slide>
+      Natural communities can form around any relay
     </swiper-slide>
     <template #container-end>
       <div class="autoplay-progress">

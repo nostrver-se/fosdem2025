@@ -32,10 +32,10 @@ div.swiper {
 .nostr-fosdem-bg {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: -10px;
   z-index: 999;
-  width: 20vw;
-  height: 20vw;
+  width: 16vw;
+  height: 16vw;
   opacity: .95;
   img {
     opacity: 1;
