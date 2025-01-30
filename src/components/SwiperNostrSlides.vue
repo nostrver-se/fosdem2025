@@ -5,6 +5,7 @@
 
     <swiper-slide v-for="(slide, index) in slides" :key="index" :style="{
       backgroundImage: slide.background ? `url(${slide.background})` : 'none',
+      backgroundColor: slide.image ? 'black' : 'none',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -17,7 +18,7 @@
       <img class="artist" v-if="slide.image" :src=slide.image />
 
       <!-- if we have no background we show gradient with the image in bottom right -->
-      <div v-if="!slide.background" class="nostr-fosdem-bg">
+      <div v-if="!slide.background && !slide.image" class="nostr-fosdem-bg">
         <img src="@/assets/fosdem_ostrich_avatar.png" />
       </div>
     </swiper-slide>

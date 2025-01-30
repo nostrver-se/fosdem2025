@@ -1,13 +1,23 @@
+// source: https://stackoverflow.com/a/12646864
+function shuffleArray(array) {
+  for (let i = array.length - 1; i >= 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 function combineData(texts, backgrounds, images) {
   const result = [];
 
   backgrounds.forEach((background) => {
-    texts.forEach((text) => {
+    shuffleArray(texts).forEach((text) => {
       result.push({ text, background, image: "" });
     });
-    images.forEach((image) => {
-      result.push({ text: "", background: "", image });
-    });
+  });
+  images.forEach((image) => {
+    const randomPosition = Math.floor(Math.random() * (result.length + 1));
+    result.splice(randomPosition, 0, { text: "", background: "", image });
   });
 
   return result;
