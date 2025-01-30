@@ -8,9 +8,11 @@ import NostrUSPs from '@/pages/NostrUSPs.vue';
 
 <style>
 @font-face {
+  font-family: 'Ubuntu';
   src: local('Ubuntu'), url('./assets/fonts/Ubuntu-M.ttf');
 }
 @font-face {
+  font-family: 'Ubuntu Mono';
   src: local('Ubuntu Mono'), url('./assets/fonts/UbuntuMono-B.ttf');
 }
 :root {
