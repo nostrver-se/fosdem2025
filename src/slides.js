@@ -29,6 +29,10 @@ const images = [
   "/fosdem2025/arch2.png",
   "/fosdem2025/arch3.jpg",
   "/fosdem2025/arch4.jpg",
+  "/fosdem2025/arch5.jpg",
+  "/fosdem2025/arch6.jpg",
+  "/fosdem2025/arch7.png",
+  "/fosdem2025/arch8.png",
 ];
 const texts = [
   "NOSTR",
@@ -40,7 +44,7 @@ const texts = [
   "Not a crypto, blockchain or web3 project",
   "A grassroots project <br /> started in 2019 <br /> by Fiatjaf",
   "Not owned by anyone, no company, not even a foundation",
-  "You are free to build anything, <br /> but also embrace the chaos ;-)",
+  "You are free to build anything, and enjoy the chaos ;)",
   "The database for your local-first application",
   "Rich development ecosystem with many libraries and SDKs",
   "It's serving the freedom of choice",
