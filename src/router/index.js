@@ -3,7 +3,7 @@ import Index from '@/pages/Index.vue'
 import NostrUSPs from '@/pages/NostrUSPs.vue';
 
 const router = createRouter({
-  history: createWebHistory('/fosdem2025'),
+  history: createWebHistory('/'),
   routes: [
     {
       path: '/index',

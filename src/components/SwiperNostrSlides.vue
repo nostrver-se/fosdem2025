@@ -1,7 +1,7 @@
 <template>
-  <swiper :spaceBetween="30" :centeredSlides="true" :autoplay="{ delay: 10000, disableOnInteraction: true, }"
-    :pagination="{ clickable: true }" :navigation="true" :modules="modules" :loop="true"
-    @autoplayTimeLeft="onAutoplayTimeLeft" class="mySwiper">
+  <swiper :spaceBetween="30" :centeredSlides="true" :autoplay="{ delay: 10000, disableOnInteraction: false, }"
+    :pagination="{ clickable: true }" :navigation="true" :keyboard="{ enabled: true }" :modules="modules" :loop="true"
+    @autoplayTimeLeft="onAutoplayTimeLeft" @slideChange="onSlideChange" class="mySwiper">
 
     <swiper-slide v-for="(slide, index) in slides" :key="index" :style="{
       backgroundImage: slide.background ? `url(${slide.background})` : 'none',
@@ -16,11 +16,6 @@
 
       <!-- show some artist images -->
       <img class="artist" v-if="slide.image" :src=slide.image />
-
-      <!-- if we have no background we show gradient with the image in bottom right -->
-      <div v-if="!slide.background && !slide.image" class="nostr-fosdem-bg">
-        <img src="@/assets/fosdem_ostrich_avatar.png" />
-      </div>
     </swiper-slide>
 
     <template #container-end>
@@ -30,12 +25,21 @@
         </svg>
         <span ref="progressContent"></span>
       </div>
+
+      <!-- fixed decorative image, not tied to any slide (rendered outside the transformed wrapper) -->
+      <div v-if="showOstrich" class="nostr-fosdem-bg" :style="{
+        '--walk-duration': walkDuration + 's',
+        '--walk-distance': walkDistance + 'vw',
+        '--walk-scale': walkScale
+      }" @animationiteration="onWalkIteration">
+        <img src="@/assets/fosdem_ostrich_avatar.png" />
+      </div>
     </template>
   </swiper>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
@@ -47,7 +51,7 @@ import 'swiper/css/pagination';
 // import 'swiper/css/navigation';
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation, Keyboard } from 'swiper/modules';
 
 export default {
   components: {
@@ -60,18 +64,49 @@ export default {
       required: true,
     },
   },
-  setup() {
+  setup(props) {
     const progressCircle = ref(null);
     const progressContent = ref(null);
+    const activeIndex = ref(0);
     const onAutoplayTimeLeft = (s, time, progress) => {
       progressCircle.value.style.setProperty('--progress', 1 - progress);
       progressContent.value.textContent = `${Math.ceil(time / 1000)}s`;
     };
+    const onSlideChange = (swiper) => {
+      activeIndex.value = swiper.realIndex;
+    };
+    const showOstrich = computed(() => {
+      const slide = props.slides[activeIndex.value];
+      return !!slide && !slide.background && !slide.image;
+    });
+
+    // Random slow "walk": duration, travel distance and a subtle size change.
+    const randomWalkDuration = () => 24 + Math.random() * 20; // 24-50s (slow)
+    const randomWalkDistance = () => 45 + Math.random() * 45; // 45-80vw
+    const randomWalkScale = () => 1.09 + Math.random() * 0.75; // 1.04-1.14
+
+    const walkDuration = ref(randomWalkDuration());
+    const walkDistance = ref(randomWalkDistance());
+    const walkScale = ref(randomWalkScale());
+
+    // New random velocity / size for every crossing.
+    const onWalkIteration = () => {
+      walkDuration.value = randomWalkDuration();
+      walkDistance.value = randomWalkDistance();
+      walkScale.value = randomWalkScale();
+    };
+
     return {
       onAutoplayTimeLeft,
+      onSlideChange,
+      showOstrich,
+      walkDuration,
+      walkDistance,
+      walkScale,
+      onWalkIteration,
       progressCircle,
       progressContent,
-      modules: [Autoplay, Pagination],
+      modules: [Autoplay, Pagination, Keyboard],
     };
   },
 };
@@ -142,13 +177,30 @@ export default {
 }
 
 .nostr-fosdem-bg {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  right: 0;
-  z-index: 999;
-  width: 20vw;
-  height: 20vw;
-  opacity: 0.95;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  width: 15vw;
+  height: 15vw;
+  opacity: 0.75;
+  /* bottom stays glued to the viewport bottom while scaling */
+  transform-origin: bottom center;
+  will-change: transform;
+  animation: ostrich-walk var(--walk-duration, 30s) linear infinite;
+}
+
+@keyframes ostrich-walk {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    transform: translateX(var(--walk-distance, 60vw)) scale(var(--walk-scale, 1.08));
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
 }
 
 .nostr-fosdem-bg img {

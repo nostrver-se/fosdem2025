@@ -7,32 +7,28 @@ function shuffleArray(array) {
   return array;
 }
 
-function combineData(texts, backgrounds, images) {
+function combineData(texts) {
   const result = [];
 
-  backgrounds.forEach((background) => {
+  if (texts) {
     shuffleArray(texts).forEach((text) => {
-      result.push({ text, background, image: "" });
+      result.push({ text });
     });
-  });
-  images.forEach((image) => {
-    const randomPosition = Math.floor(Math.random() * (result.length + 1));
-    result.splice(randomPosition, 0, { text: "", background: "", image });
-  });
+  }
 
   return result;
 }
 
-const backgrounds = ["", "/fosdem2025/omar-bg.png"];
+const backgrounds = ["", "/omar-bg.png"];
 const images = [
-  "/fosdem2025/arch1.png",
-  "/fosdem2025/arch2.png",
-  "/fosdem2025/arch3.jpg",
-  "/fosdem2025/arch4.jpg",
-  "/fosdem2025/arch5.jpg",
-  "/fosdem2025/arch6.jpg",
-  "/fosdem2025/arch7.png",
-  "/fosdem2025/arch8.png",
+  "/arch1.png",
+  "/arch2.png",
+  "/arch3.jpg",
+  "/arch4.jpg",
+  "/arch5.jpg",
+  "/arch6.jpg",
+  "/arch7.png",
+  "/arch8.png",
 ];
 const texts = [
   "NOSTR",
@@ -42,26 +38,34 @@ const texts = [
   "A libre protocol for communication using websockets",
   "Key signed events with data (JSON),<br /> broadcasted between clients and relays",
   "Not a crypto, blockchain or web3 project",
+  "Nostr events swarm around on relays",
   "A grassroots project <br /> started in 2019 <br /> by Fiatjaf",
   "Not owned by anyone, no company, not even a foundation",
   "You are free to build anything, and enjoy the chaos ;)",
-  "The database for your local-first application",
-  "Rich development ecosystem with many libraries and SDKs",
-  "It's serving the freedom of choice",
-  "Zero switching costs",
+  "The `database` for your local-first application",
+  "A npub1 is your public key",
+  "Zero switching costs between clients",
+  "A nsec1 is your private key (keep it secret!)",
   "The only decentralized protocol that has a chance of working",
   "Stop studying protocols, <br /> just start building",
   "Your profile is not tied to a domain",
+  "Micropayments with zaps",
   "A movement endorsing digital autonomy",
+  "Download a client, write a note with your introduction and use the hashtag #introductions",
+  "Freedom Tech",
+  "Censorship-resistant",
+  "Nostr is like e-mail",
   "Use and build social apps for friends, not for billionaires",
+  "Visit nostr.org",
   "The protocol is the API, <br /> the API is on the protocol level",
-  "Jack Dorsey, Edward Snowden and Stella Assange love it  <br /> #freedomtech",
+  "Jack Dorsey, Edward Snowden and Stella Assange love it",
+  "It's intrastructure",
   "A local-first internet identity",
   "Each relay is free to have any policy",
   "The most open network with digitally signed and verifiable data",
   "Natural communities can form around any relay",
 ];
 
-const slides = combineData(texts, backgrounds, images);
+const slides = combineData(texts, backgrounds);
 
 export default slides;

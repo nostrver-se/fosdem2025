@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "swiper": {
+      "type": "http",
+      "url": "https://swiperjs.com/mcp"
+    },
+    "nostr": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@nostrbook/mcp@latest"
+      ]
+    }
+  }
+}
